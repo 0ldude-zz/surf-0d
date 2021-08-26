@@ -19,7 +19,7 @@ static Parameter defconfig[ParameterLast] = {
 	[AccessWebcam]        =		{ { .i = 0 },     },
 	[Certificate]         =		{ { .i = 0 },     },
 	[CaretBrowsing]       =		{ { .i = 0 },     },
-	[CookiePolicies]      =		{ { .v = "@Aa" }, },
+	[CookiePolicies]      =		{ { .v = "@" }, },
 	[DefaultCharset]      =		{ { .v = "UTF-8" }, },
 	[DiskCache]           =		{ { .i = 1 },     },
 	[DNSPrefetch]         =		{ { .i = 0 },     },
@@ -69,7 +69,7 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
 #define SETPROP(r, s, p) { \
         .v = (const char *[]){ "/bin/sh", "-c", \
              "prop=\"$(printf '%b' \"$(xprop -id $1 "r" " \
-             "| sed -e 's/^"r"(UTF8_STRING) = \"\\(.*\\)\"/\\1/' && cat ~/.surf/bookmarks)\" " \
+             "| sed -e 's/^"r"(UTF8_STRING) = \"\\(.*\\)\"/\\1/' " \
              "      -e 's/\\\\\\(.\\)/\\1/g')\" " \
              "| dmenu -p '"p"' -w $1)\" " \
              "&& xprop -id $1 -f "s" 8u -set "s" \"$prop\"", \
