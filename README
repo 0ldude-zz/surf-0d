@@ -2,6 +2,16 @@ surf - simple webkit-based browser
 ==================================
 surf is a simple Web browser based on WebKit/GTK+.
 
+Do yourself a favor, build your webkit2gtk
+On Arch:
+doas/sudo pacman -Syu asp
+asp checkout webkit2gtk
+cd webkit2gtk/repos/extra-x86_64
+cat PKGBUILD | grep validgpgkeys
+gpg --search-keys mailyouseeinpreviouscommand
+(follow the instructions till you import it)
+extra-x86_64-build PKGBUILD
+
 Requirements
 ------------
 In order to build surf you need GTK+ and Webkit/GTK+ header files.
